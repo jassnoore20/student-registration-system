@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudentHub | Student Registration</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">S</span> StudentHub</a>
+    <span class="top-note">STUDENT MANAGEMENT</span>
+  </header>
+
+  <main class="container">
+    <section class="welcome">
+      <div>
+        <p class="eyebrow">STUDENT ADMINISTRATION</p>
+        <h1>Student Registration</h1>
+        <p class="subtitle">Add, search and manage student records in one place.</p>
+      </div>
+      <div class="welcome-icon" aria-hidden="true">🎓</div>
+    </section>
+
+    <section class="stats" aria-label="Student statistics">
+      <article class="stat-card">
+        <span class="stat-label">TOTAL STUDENTS</span>
+        <strong id="totalStudents">0</strong>
+        <span class="stat-caption">Registered records</span>
+      </article>
+      <article class="stat-card">
+        <span class="stat-label">AVAILABLE COURSES</span>
+        <strong id="totalCourses">0</strong>
+        <span class="stat-caption">Unique courses</span>
+      </article>
+    </section>
+
+    <section class="content-grid">
+      <article class="panel form-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">NEW RECORD</p>
+            <h2 id="formTitle">Add a student</h2>
+          </div>
+          <span class="heading-icon">＋</span>
+        </div>
+        <form id="studentForm">
+          <label for="name">Full name</label>
+          <input id="name" name="name" type="text" placeholder="e.g. Aanya Sharma" required maxlength="60">
+
+          <label for="email">Email address</label>
+          <input id="email" name="email" type="email" placeholder="e.g. aanya@email.com" required maxlength="100">
+
+          <div class="form-row">
+            <div>
+              <label for="age">Age</label>
+              <input id="age" name="age" type="number" min="16" max="100" placeholder="21" required>
+            </div>
+            <div>
+              <label for="course">Course</label>
+              <select id="course" name="course" required>
+                <option value="">Select course</option>
+                <option>BCA</option>
+                <option>BBA</option>
+                <option>BA</option>
+                <option>B.Com</option>
+                <option>B.Sc</option>
+                <option>MCA</option>
+                <option>MBA</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <button class="primary-btn" id="submitBtn" type="submit">Add student <span>→</span></button>
+          <button class="cancel-btn hidden" id="cancelEdit" type="button">Cancel editing</button>
+          <p class="form-hint">Your records are saved in this browser using Local Storage.</p>
+          <p class="message" id="formMessage" role="status"></p>
+        </form>
+      </article>
+
+      <article class="panel records-panel">
+        <div class="records-heading">
+          <div>
+            <p class="eyebrow">DIRECTORY</p>
+            <h2>Student records</h2>
+          </div>
+          <span class="record-count" id="recordCount">0 records</span>
+        </div>
+        <div class="search-wrap">
+          <span aria-hidden="true">⌕</span>
+          <input id="searchInput" type="search" placeholder="Search by name, email or course..." aria-label="Search students">
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>STUDENT</th><th>AGE</th><th>COURSE</th><th>ACTIONS</th></tr>
+            </thead>
+            <tbody id="studentTable">
+              <tr><td colspan="4" class="empty-state">No students yet. Add your first record.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-footnote">Tip: use the search box to quickly find a student.</p>
+      </article>
+    </section>
+    <footer>StudentHub · Built with HTML, CSS & JavaScript</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
